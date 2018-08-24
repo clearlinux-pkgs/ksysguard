@@ -4,7 +4,7 @@
 #
 Name     : ksysguard
 Version  : 5.13.4
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/plasma/5.13.4/ksysguard-5.13.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.13.4/ksysguard-5.13.4.tar.xz
 Summary  : No detailed summary available
@@ -91,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535146533
+export SOURCE_DATE_EPOCH=1535148769
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -99,7 +99,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535146533
+export SOURCE_DATE_EPOCH=1535148769
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ksysguard
 cp COPYING %{buildroot}/usr/share/doc/ksysguard/COPYING
