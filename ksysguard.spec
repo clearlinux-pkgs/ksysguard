@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksysguard
-Version  : 5.13.4
-Release  : 3
-URL      : https://download.kde.org/stable/plasma/5.13.4/ksysguard-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/ksysguard-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/ksysguard-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 4
+URL      : https://download.kde.org/stable/plasma/5.13.5/ksysguard-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/ksysguard-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/ksysguard-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -19,10 +19,6 @@ Requires: ksysguard-license
 Requires: ksysguard-locales
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kdbusaddons-dev
-BuildRequires : kinit-dev
-BuildRequires : knotifications-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : libksysguard-dev
 
 %description
@@ -87,14 +83,14 @@ locales components for the ksysguard package.
 
 
 %prep
-%setup -q -n ksysguard-5.13.4
+%setup -q -n ksysguard-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535432705
+export SOURCE_DATE_EPOCH=1536087712
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -102,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535432705
+export SOURCE_DATE_EPOCH=1536087712
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/ksysguard
 cp COPYING %{buildroot}/usr/share/doc/ksysguard/COPYING
