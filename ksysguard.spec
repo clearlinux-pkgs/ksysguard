@@ -6,7 +6,7 @@
 #
 Name     : ksysguard
 Version  : 5.15.4
-Release  : 17
+Release  : 18
 URL      : https://download.kde.org/stable/plasma/5.15.4/ksysguard-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/ksysguard-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/ksysguard-5.15.4.tar.xz.sig
@@ -20,6 +20,10 @@ Requires: ksysguard-license = %{version}-%{release}
 Requires: ksysguard-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kdbusaddons-dev
+BuildRequires : kinit-dev
+BuildRequires : knotifications-dev
+BuildRequires : kwindowsystem-dev
 BuildRequires : libksysguard-dev
 
 %description
@@ -90,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554220555
+export SOURCE_DATE_EPOCH=1555359436
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -98,7 +102,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1554220555
+export SOURCE_DATE_EPOCH=1555359436
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksysguard
 cp COPYING %{buildroot}/usr/share/package-licenses/ksysguard/COPYING
