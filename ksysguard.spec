@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksysguard
-Version  : 5.16.5
-Release  : 27
-URL      : https://download.kde.org/stable/plasma/5.16.5/ksysguard-5.16.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.5/ksysguard-5.16.5.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.5/ksysguard-5.16.5.tar.xz.sig
+Version  : 5.17.0
+Release  : 28
+URL      : https://download.kde.org/stable/plasma/5.17.0/ksysguard-5.17.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.17.0/ksysguard-5.17.0.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.17.0/ksysguard-5.17.0.tar.xz.sig
 Summary  : Track and control the processes running in your system
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -20,10 +20,7 @@ Requires: ksysguard-license = %{version}-%{release}
 Requires: ksysguard-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kdbusaddons-dev
-BuildRequires : kinit-dev
-BuildRequires : knotifications-dev
-BuildRequires : kwindowsystem-dev
+BuildRequires : glibc-dev
 BuildRequires : libksysguard-dev
 
 %description
@@ -87,14 +84,14 @@ locales components for the ksysguard package.
 
 
 %prep
-%setup -q -n ksysguard-5.16.5
+%setup -q -n ksysguard-5.17.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567646140
+export SOURCE_DATE_EPOCH=1571154910
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -107,15 +104,15 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567646140
+export SOURCE_DATE_EPOCH=1571154910
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksysguard
-cp COPYING %{buildroot}/usr/share/package-licenses/ksysguard/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/COPYING.DOC
+cp %{_builddir}/ksysguard-5.17.0/COPYING %{buildroot}/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/ksysguard-5.17.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -158,6 +155,8 @@ popd
 /usr/share/doc/HTML/en/ksysguard/index.docbook
 /usr/share/doc/HTML/et/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/et/ksysguard/index.docbook
+/usr/share/doc/HTML/id/ksysguard/index.cache.bz2
+/usr/share/doc/HTML/id/ksysguard/index.docbook
 /usr/share/doc/HTML/it/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/it/ksysguard/index.docbook
 /usr/share/doc/HTML/nl/ksysguard/index.cache.bz2
@@ -179,8 +178,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/ksysguard/COPYING
-/usr/share/package-licenses/ksysguard/COPYING.DOC
+/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
+/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 
 %files locales -f ksysguard.lang
 %defattr(-,root,root,-)
