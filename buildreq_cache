@@ -1,6 +1,7 @@
-5.17.0
+5.17.1
 kdbusaddons-dev
 kinit-dev
 knotifications-dev
 kwindowsystem-dev
 libksysguard-dev
+util-linux
