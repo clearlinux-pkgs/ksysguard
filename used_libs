@@ -18,9 +18,9 @@ libQt5Gui.so.5
 libQt5Widgets.so.5
 libQt5Xml.so.5
 libc.so.6
-libksgrd.so.7
-libksignalplotter.so.7
+libksgrd.so.9
+libksignalplotter.so.9
 libm.so.6
-libprocesscore.so.7
-libprocessui.so.7
+libprocesscore.so.9
+libprocessui.so.9
 libstdc++.so.6
