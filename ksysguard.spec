@@ -6,7 +6,7 @@
 #
 Name     : ksysguard
 Version  : 5.19.2
-Release  : 43
+Release  : 44
 URL      : https://download.kde.org/stable/plasma/5.19.2/ksysguard-5.19.2.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.19.2/ksysguard-5.19.2.tar.xz
 Source1  : https://download.kde.org/stable/plasma/5.19.2/ksysguard-5.19.2.tar.xz.sig
