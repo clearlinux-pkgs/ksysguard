@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksysguard
-Version  : 5.19.4
-Release  : 45
-URL      : https://download.kde.org/stable/plasma/5.19.4/ksysguard-5.19.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.4/ksysguard-5.19.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.4/ksysguard-5.19.4.tar.xz.sig
+Version  : 5.20.0
+Release  : 46
+URL      : https://download.kde.org/stable/plasma/5.20.0/ksysguard-5.20.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.0/ksysguard-5.20.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.0/ksysguard-5.20.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -24,7 +24,16 @@ BuildRequires : extra-cmake-modules-data
 BuildRequires : glibc-dev
 BuildRequires : kdoctools-dev
 BuildRequires : ki18n-dev
+BuildRequires : kiconthemes-dev
+BuildRequires : kinit-dev
+BuildRequires : kio-dev
+BuildRequires : knewstuff-dev
 BuildRequires : libksysguard-dev
+BuildRequires : networkmanager-qt-dev
+BuildRequires : pkg-config
+BuildRequires : pkgconfig(libnl-3.0)
+BuildRequires : pkgconfig(libnl-genl-3.0)
+BuildRequires : pkgconfig(libnl-route-3.0)
 
 %description
 What is KSysGuard?
@@ -100,15 +109,15 @@ locales components for the ksysguard package.
 
 
 %prep
-%setup -q -n ksysguard-5.19.4
-cd %{_builddir}/ksysguard-5.19.4
+%setup -q -n ksysguard-5.20.0
+cd %{_builddir}/ksysguard-5.20.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597633410
+export SOURCE_DATE_EPOCH=1602702059
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,11 +133,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597633410
+export SOURCE_DATE_EPOCH=1602702059
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksysguard
-cp %{_builddir}/ksysguard-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/ksysguard-5.19.4/COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/ksysguard-5.20.0/COPYING %{buildroot}/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/ksysguard-5.20.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -180,6 +189,8 @@ popd
 /usr/share/doc/HTML/en/ksysguard/index.docbook
 /usr/share/doc/HTML/et/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/et/ksysguard/index.docbook
+/usr/share/doc/HTML/fr/ksysguard/index.cache.bz2
+/usr/share/doc/HTML/fr/ksysguard/index.docbook
 /usr/share/doc/HTML/id/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/id/ksysguard/index.docbook
 /usr/share/doc/HTML/it/ksysguard/index.cache.bz2
@@ -192,16 +203,16 @@ popd
 /usr/share/doc/HTML/pt_BR/ksysguard/index.docbook
 /usr/share/doc/HTML/ru/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/ru/ksysguard/index.docbook
-/usr/share/doc/HTML/sv/ksysguard/index.cache.bz2
-/usr/share/doc/HTML/sv/ksysguard/index.docbook
 /usr/share/doc/HTML/uk/ksysguard/index.cache.bz2
 /usr/share/doc/HTML/uk/ksysguard/index.docbook
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libkdeinit5_ksysguard.so
+/usr/lib64/qt5/plugins/ksysguard/ksysguard_globalplugin_network.so
 /usr/lib64/qt5/plugins/ksysguard/ksysguard_ksgrd.so
 /usr/lib64/qt5/plugins/ksysguard/ksysguard_plugin_nvidiaglobal.so
+/usr/lib64/qt5/plugins/ksysguard/ksysguard_plugin_osinfo.so
 /usr/lib64/qt5/plugins/ksysguard/process/ksysguard_plugin_nvidia.so
 
 %files license
