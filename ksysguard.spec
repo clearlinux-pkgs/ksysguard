@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : ksysguard
-Version  : 5.20.4
-Release  : 50
-URL      : https://download.kde.org/stable/plasma/5.20.4/ksysguard-5.20.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.20.4/ksysguard-5.20.4.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.20.4/ksysguard-5.20.4.tar.xz.sig
+Version  : 5.20.5
+Release  : 51
+URL      : https://download.kde.org/stable/plasma/5.20.5/ksysguard-5.20.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.20.5/ksysguard-5.20.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.20.5/ksysguard-5.20.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -103,15 +103,15 @@ locales components for the ksysguard package.
 
 
 %prep
-%setup -q -n ksysguard-5.20.4
-cd %{_builddir}/ksysguard-5.20.4
+%setup -q -n ksysguard-5.20.5
+cd %{_builddir}/ksysguard-5.20.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1606840007
+export SOURCE_DATE_EPOCH=1609873222
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -127,11 +127,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1606840007
+export SOURCE_DATE_EPOCH=1609873222
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksysguard
-cp %{_builddir}/ksysguard-5.20.4/COPYING %{buildroot}/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/ksysguard-5.20.4/COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/ksysguard-5.20.5/COPYING %{buildroot}/usr/share/package-licenses/ksysguard/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/ksysguard-5.20.5/COPYING.DOC %{buildroot}/usr/share/package-licenses/ksysguard/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
