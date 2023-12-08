@@ -24,4 +24,5 @@ libksignalplotter.so.9
 libm.so.6
 libprocesscore.so.9
 libprocessui.so.9
+libsensors.so.5
 libstdc++.so.6
